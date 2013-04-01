@@ -1,0 +1,2 @@
+module OptinpartnersHelper
+end

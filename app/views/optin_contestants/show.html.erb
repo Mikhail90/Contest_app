@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contest:</b>
+  <%= @optin_contestant.contest_id %>
+</p>
+
+<p>
+  <b>Optinpartner:</b>
+  <%= @optin_contestant.optinpartner_id %>
+</p>
+
+<p>
+  <b>Contestant:</b>
+  <%= @optin_contestant.contestant_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_optin_contestant_path(@optin_contestant) %> |
+<%= link_to 'Back', optin_contestants_path %>

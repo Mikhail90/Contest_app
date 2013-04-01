@@ -1,0 +1,25 @@
+<%= form_for(@contest_entry) do |f| %>
+  <% if @contest_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contest_entry.errors.count, "error") %> prohibited this contest_entry from being saved:</h2>
+
+      <ul>
+      <% @contest_entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contest_id %><br />
+    <%= f.number_field :contest_id %>
+  </div>
+  <div class="field">
+    <%= f.label :contestant_id %><br />
+    <%= f.number_field :contestant_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<h1>Listing optin_contestants</h1>
+
+<table>
+  <tr>
+    <th>Contest</th>
+    <th>Optinpartner</th>
+    <th>Contestant</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @optin_contestants.each do |optin_contestant| %>
+  <tr>
+    <td><%= optin_contestant.contest_id %></td>
+    <td><%= optin_contestant.optinpartner_id %></td>
+    <td><%= optin_contestant.contestant_id %></td>
+    <td><%= link_to 'Show', optin_contestant %></td>
+    <td><%= link_to 'Edit', edit_optin_contestant_path(optin_contestant) %></td>
+    <td><%= link_to 'Destroy', optin_contestant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Optin contestant', new_optin_contestant_path %>

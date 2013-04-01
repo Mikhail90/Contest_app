@@ -1,0 +1,29 @@
+<%= form_for(@optin_contestant) do |f| %>
+  <% if @optin_contestant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@optin_contestant.errors.count, "error") %> prohibited this optin_contestant from being saved:</h2>
+
+      <ul>
+      <% @optin_contestant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contest_id %><br />
+    <%= f.number_field :contest_id %>
+  </div>
+  <div class="field">
+    <%= f.label :optinpartner_id %><br />
+    <%= f.number_field :optinpartner_id %>
+  </div>
+  <div class="field">
+    <%= f.label :contestant_id %><br />
+    <%= f.number_field :contestant_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

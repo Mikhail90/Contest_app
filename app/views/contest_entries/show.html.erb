@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contest:</b>
+  <%= @contest_entry.contest_id %>
+</p>
+
+<p>
+  <b>Contestant:</b>
+  <%= @contest_entry.contestant_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_contest_entry_path(@contest_entry) %> |
+<%= link_to 'Back', contest_entries_path %>

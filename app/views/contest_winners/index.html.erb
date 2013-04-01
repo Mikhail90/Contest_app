@@ -1,0 +1,25 @@
+<h1>Listing contest_winners</h1>
+
+<table>
+  <tr>
+    <th>Contestant</th>
+    <th>Prize</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contest_winners.each do |contest_winner| %>
+  <tr>
+    <td><%= contest_winner.contestant_id %></td>
+    <td><%= contest_winner.prize_id %></td>
+    <td><%= link_to 'Show', contest_winner %></td>
+    <td><%= link_to 'Edit', edit_contest_winner_path(contest_winner) %></td>
+    <td><%= link_to 'Destroy', contest_winner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Contest winner', new_contest_winner_path %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  slug: MyString
+  startdate: 2013-03-14 10:56:22
+  enddate: 2013-03-14 10:56:22
+  rules: MyText
+  css: MyText
+  promotion: MyText
+
+two:
+  title: MyString
+  description: MyText
+  slug: MyString
+  startdate: 2013-03-14 10:56:22
+  enddate: 2013-03-14 10:56:22
+  rules: MyText
+  css: MyText
+  promotion: MyText

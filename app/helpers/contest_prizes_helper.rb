@@ -1,0 +1,2 @@
+module ContestPrizesHelper
+end

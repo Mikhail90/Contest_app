@@ -1,0 +1,25 @@
+<%= form_for(@optinpartner) do |f| %>
+  <% if @optinpartner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@optinpartner.errors.count, "error") %> prohibited this optinpartner from being saved:</h2>
+
+      <ul>
+      <% @optinpartner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :label %><br />
+    <%= f.text_area :label %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @contestant.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @contestant.lastname %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @contestant.email %>
+</p>
+
+<p>
+  <b>Firstentered:</b>
+  <%= @contestant.firstentered %>
+</p>
+
+<p>
+  <b>Lastentered:</b>
+  <%= @contestant.lastentered %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @contestant.zipcode %>
+</p>
+
+
+<%= link_to 'Edit', edit_contestant_path(@contestant) %> |
+<%= link_to 'Back', contestants_path %>
