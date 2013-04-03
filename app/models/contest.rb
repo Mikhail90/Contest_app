@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: contests
+#
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  description :text
+#  slug        :string(255)
+#  startdate   :datetime
+#  enddate     :datetime
+#  rules       :text
+#  css         :text
+#  promotion   :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Contest < ActiveRecord::Base
   attr_accessible :css, :description, :enddate, :promotion, :rules, :slug, :startdate, :title  
   

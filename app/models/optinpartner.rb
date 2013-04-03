@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: optinpartners
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  label      :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Optinpartner < ActiveRecord::Base
   attr_accessible :label, :name
   

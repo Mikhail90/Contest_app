@@ -1,18 +1,14 @@
 # == Schema Information
 #
-# Table name: optinpartners
+# Table name: users
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
-#  label      :text
+#  email      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
-
-class OptinpartnerTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class User < ActiveRecord::Base
+  attr_accessible :email, :name
 end
