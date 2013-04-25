@@ -1,4 +1,8 @@
 ContestV4::Application.routes.draw do
+  get "static_pages/activeContests"
+
+  root to: 'static_pages#activeContests'
+
   resources :optin_contestants
 
   resources :optinpartners
@@ -15,7 +19,10 @@ ContestV4::Application.routes.draw do
 
   resources :contest_entries
 
-  resources :contests
+  resources :contests do
+    resources :contestants
+  end
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

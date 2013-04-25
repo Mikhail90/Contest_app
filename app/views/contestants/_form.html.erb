@@ -1,4 +1,4 @@
-<%= form_for(@contestant) do |f| %>
+<%= form_for([@contest, @contestant]) do |f| %>
   <% if @contestant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@contestant.errors.count, "error") %> prohibited this contestant from being saved:</h2>
@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+
+
+
+
 
   <div class="field">
     <%= f.label :firstname %><br />
@@ -35,6 +39,8 @@
     <%= f.label :zipcode %><br />
     <%= f.text_field :zipcode %>
   </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

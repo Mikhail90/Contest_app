@@ -1,8 +1,18 @@
 class ContestantsController < ApplicationController
+
+before_filter :get_contest
+
   # GET /contestants
   # GET /contestants.json
+
+  def get_contest
+        @contests = Contest.find(params[:contest_id])
+  end
+
+
   def index
-    @contestants = Contestant.all
+        @contestants = @contests.contestants.all
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,10 +34,10 @@ class ContestantsController < ApplicationController
   # GET /contestants/new
   # GET /contestants/new.json
   def new
-    @contestant = Contestant.new
+    @contestant = @contests.contestants.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { redirect_to @contestant, notice: 'Contestant was successfully created.' }# new.html.erb
       format.json { render json: @contestant }
     end
   end
