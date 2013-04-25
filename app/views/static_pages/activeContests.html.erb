@@ -1,5 +1,9 @@
-<h1>Enter to Win!</h1>
+<h1><%=@title%></h1>
+<% @contests.each do |contest| %>
+  <tr>
+    <td><%= link_to contest.title, new_contest_contestant_path(contest) %> <br></td>
+  </tr>
 
-
+   <% end %>
 
 <p>Find me in app/views/static_pages/activeContests.html.erb</p>

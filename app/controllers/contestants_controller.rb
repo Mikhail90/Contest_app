@@ -1,17 +1,16 @@
 class ContestantsController < ApplicationController
-
 before_filter :get_contest
 
   # GET /contestants
   # GET /contestants.json
 
   def get_contest
-        @contests = Contest.find(params[:contest_id])
+      @contest = Contest.find(params[:contest_id])
   end
 
 
   def index
-        @contestants = @contests.contestants.all
+      @contestants = @contest.contestants.all
 
 
     respond_to do |format|
@@ -23,23 +22,19 @@ before_filter :get_contest
   # GET /contestants/1
   # GET /contestants/1.json
   def show
-    @contestant = Contestant.find(params[:id])
+    @contestant = @contest.contestants.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @contestant }
+      format.json { render json: [@contest, @contestant] }
     end
   end
 
   # GET /contestants/new
   # GET /contestants/new.json
   def new
-    @contestant = @contests.contestants.new
+    @contestant = @contest.contestants.new
 
-    respond_to do |format|
-      format.html { redirect_to @contestant, notice: 'Contestant was successfully created.' }# new.html.erb
-      format.json { render json: @contestant }
-    end
   end
 
   # GET /contestants/1/edit
@@ -50,15 +45,19 @@ before_filter :get_contest
   # POST /contestants
   # POST /contestants.json
   def create
-    @contestant = Contestant.new(params[:contestant])
+    @contestant = @contest.contestants.create(params[:contestant])
 
     respond_to do |format|
       if @contestant.save
-        format.html { redirect_to @contestant, notice: 'Contestant was successfully created.' }
-        format.json { render json: @contestant, status: :created, location: @contestant }
+        format.html { redirect_to [@contest, @contestant],
+                    notice: 'Contestant was successfully created.' }
+        format.json { render json: [@contest, @contestant],
+                    status: :created, 
+                    location: [@contest, @contestant] }
       else
         format.html { render action: "new" }
-        format.json { render json: @contestant.errors, status: :unprocessable_entity }
+        format.json { render json: @contestant.errors, 
+                    status: :unprocessable_entity }
       end
     end
   end
@@ -66,11 +65,11 @@ before_filter :get_contest
   # PUT /contestants/1
   # PUT /contestants/1.json
   def update
-    @contestant = Contestant.find(params[:id])
+    @contestant = @contest.contestants.find(params[:id])
 
     respond_to do |format|
       if @contestant.update_attributes(params[:contestant])
-        format.html { redirect_to @contestant, notice: 'Contestant was successfully updated.' }
+        format.html { redirect_to [@contest,@contestant], notice: 'Contestant was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
