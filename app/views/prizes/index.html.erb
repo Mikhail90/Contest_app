@@ -13,8 +13,8 @@
   <tr>
     <td><%= prize.prize %></td>
     <td><%= prize.description %></td>
-    <td><%= link_to 'Show', prize %></td>
-    <td><%= link_to 'Edit', edit_prize_path(prize) %></td>
+    <td><%= link_to 'Show',  '/contests/'+(@contest.id.to_s)+'/prizes/'+(prize.id.to_s)%></td>
+    <td><%= link_to 'Edit', '/contests/'+(@contest.id.to_s)+'/prizes/'+(prize.id.to_s)+'/edit' %></td>
     <td><%= link_to 'Destroy', prize, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
@@ -22,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Prize', new_prize_path %>
+<%= link_to 'New Prize', '/contests/'+(@contest.id.to_s)+'/prizes/new' %>

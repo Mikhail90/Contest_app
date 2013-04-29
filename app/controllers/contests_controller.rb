@@ -1,4 +1,9 @@
 class ContestsController < ApplicationController
+
+
+
+
+
   # GET /contests
   # GET /contests.json
   def index
@@ -26,6 +31,7 @@ class ContestsController < ApplicationController
   def new
     @contest = Contest.new
 
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @contest }
@@ -41,6 +47,9 @@ class ContestsController < ApplicationController
   # POST /contests.json
   def create
     @contest = Contest.new(params[:contest])
+    @prize = @contest.prizes.new
+    @prize.save
+
 
     respond_to do |format|
       if @contest.save

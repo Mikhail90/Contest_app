@@ -1,5 +1,7 @@
 ContestV4::Application.routes.draw do
   get "static_pages/activeContests"
+  get "static_pages/adminHome"
+
 
   root to: 'static_pages#activeContests'
 
@@ -21,6 +23,10 @@ ContestV4::Application.routes.draw do
 
   resources :contests do
     resources :contestants
+  end
+
+  resources :contests do
+    resources :prizes
   end
   
 

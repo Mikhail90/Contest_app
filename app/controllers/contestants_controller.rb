@@ -1,12 +1,13 @@
 class ContestantsController < ApplicationController
 before_filter :get_contest
 
-  # GET /contestants
-  # GET /contestants.json
-
+ 
   def get_contest
       @contest = Contest.find(params[:contest_id])
   end
+
+ # GET /contestants
+  # GET /contestants.json
 
 
   def index

@@ -1,0 +1,22 @@
+<h1><%= @title%></h1>
+<p>Total Number of Contestants: <%=@numberOfContestants%> </p>
+<table border=0>
+<tr>
+    <td>Contest Title (Click to Edit)</td>
+    <td> enrolled contestants </td>
+    <td>Prizes</td>
+ </tr>
+
+<% @contests.each do |contest| %>
+  <tr>
+    <td><%= link_to contest.title, contest_path(contest) %> <br></td>
+    <td><%= link_to contest.slug, contest_contestants_path(contest)%></td>
+    <td><%= link_to contest.prizes.last, '/contests/'+contest.id.to_s+'/prizes/'%></td>
+  </tr>
+
+   <% end %>
+</table>
+
+<p> This is where Admin users will come to see all the things that they can do!! </p>
+
+<%= link_to 'New Contest', new_contest_path %>

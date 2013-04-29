@@ -1,8 +1,16 @@
 class PrizesController < ApplicationController
+before_filter :get_contest
+
+ 
+  def get_contest
+      @contest = Contest.find(params[:contest_id])
+  end
+
+
   # GET /prizes
   # GET /prizes.json
   def index
-    @prizes = Prize.all
+    @prizes = @contest.prizes.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +21,7 @@ class PrizesController < ApplicationController
   # GET /prizes/1
   # GET /prizes/1.json
   def show
-    @prize = Prize.find(params[:id])
+    @prize = @contest.prizes.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +32,7 @@ class PrizesController < ApplicationController
   # GET /prizes/new
   # GET /prizes/new.json
   def new
-    @prize = Prize.new
+    @prize = @contest.prizes.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,12 +48,12 @@ class PrizesController < ApplicationController
   # POST /prizes
   # POST /prizes.json
   def create
-    @prize = Prize.new(params[:prize])
+    @prize = @contest.prizes.new(params[:prize])
 
     respond_to do |format|
       if @prize.save
-        format.html { redirect_to @prize, notice: 'Prize was successfully created.' }
-        format.json { render json: @prize, status: :created, location: @prize }
+        format.html { redirect_to [@contest, @prize], notice: 'Prize was successfully created.' }
+        format.json { render json: [@contest, @prize], status: :created, location: [@contest, @prize] }
       else
         format.html { render action: "new" }
         format.json { render json: @prize.errors, status: :unprocessable_entity }
@@ -56,7 +64,7 @@ class PrizesController < ApplicationController
   # PUT /prizes/1
   # PUT /prizes/1.json
   def update
-    @prize = Prize.find(params[:id])
+    @prize = @contest.prizes.find(params[:id])
 
     respond_to do |format|
       if @prize.update_attributes(params[:prize])
